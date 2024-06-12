@@ -32,7 +32,10 @@ func main() { // Main function: the entry point of the Go program.
 		// Prompt the user for the number of tickets.
 		fmt.Println("Enter number of tickets:")
 		fmt.Scan(&usertickets) // Scan for input and store it in tickets. Using & to get the variable's memory address.
-
+		if usertickets > remainingTickets {
+			fmt.Println("Out of Tickets, you are asking %v, but we have only %v", usertickets, remainingTickets)
+			break
+		}
 		bookings = append(bookings, firstName+" "+lastName)
 		remainingTickets = remainingTickets - usertickets
 		// Print a confirmation message with the user's details.
